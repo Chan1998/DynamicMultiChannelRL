@@ -3,15 +3,17 @@ main Code for Project
 Code Author - Aditya Gulati and Abhinav Gupta
 """
 
+
 from __future__ import absolute_import, division, print_function, unicode_literals
 import numpy as np 
-import tensorflow as tf 
+import tensorflow as tf
+tf.compat.v1.disable_eager_execution()
 import pandas as pd 
 from collections import deque
 import utils
 import qnetwork
 import matplotlib.pyplot as plt
-tf.keras.backend.clear_session() 
+tf.keras.backend.clear_session()
 from tensorflow.keras import layers
 
 
@@ -45,7 +47,9 @@ pretrain_length = 16            # Pretrain Set to be known
 n_episodes = 10                 # Number of episodes (equivalent to epochs)
 
 
-tf.reset_default_graph()
+#tf.reset_default_graph()
+tf.compat.v1.reset_default_graph()
+
 
 env_model = qnetwork.channel_env(NUM_CHANNELS)      # Intialize Evironment, Network and Batch Memory
 
@@ -66,12 +70,15 @@ for i in range(pretrain_length):
 	history_input.append(obs)
 
 
-saver = tf.train.Saver()
+#saver = tf.train.Saver()
+#saver = tf.saved_model.save()
 
-sess = tf.Session()
-sess.run(tf.global_variables_initializer())
+
+sess = tf.compat.v1.Session()
+sess.run(tf.compat.v1.global_variables_initializer())
 
 prob_explore = 0.1                  # Exploration Probability
+
 
 loss_0 = []
 avg_loss = []
