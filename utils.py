@@ -5,12 +5,12 @@ Code Author - Aditya Gulati and Abhinav Gupta
 from __future__ import absolute_import, division, print_function, unicode_literals
 import numpy as np 
 import tensorflow as tf 
-import pandas as pd 
-from collections import deque
+# import pandas as pd
+# from collections import deque
 
 tf.keras.backend.clear_session()  # For easy reset of notebook state.
 
-from tensorflow.keras import layers
+#from tensorflow.keras import layers
 
 #From one state,actions and observations make new states
 def state_gen(state,action,obs):

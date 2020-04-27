@@ -7,12 +7,12 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import numpy as np 
 import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
-import pandas as pd 
+#import pandas as pd
 from collections import deque
 
 tf.keras.backend.clear_session()  # For easy reset of notebook state.
 
-from tensorflow.keras import layers
+#from tensorflow.keras import layers
 
 # Initial Environment
 class channel_env:

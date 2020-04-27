@@ -14,7 +14,7 @@ import utils
 import qnetwork
 import matplotlib.pyplot as plt
 tf.keras.backend.clear_session()
-from tensorflow.keras import layers
+#from tensorflow.keras import layers
 
 
 
@@ -44,7 +44,7 @@ learning_rate = 1e-2            # Learning rate
 gamma = 0.9                     # Discount Factor
 hidden_size = 50                # Hidden Size (Put 200 for perfectly correlated)
 pretrain_length = 16            # Pretrain Set to be known
-n_episodes = 10                 # Number of episodes (equivalent to epochs)
+n_episodes = 4                 # Number of episodes (equivalent to epochs)
 
 
 #tf.reset_default_graph()
@@ -95,7 +95,6 @@ for episode in range(n_episodes):
         prob_sample = np.random.rand()
         state_in  = np.array(history_input)                 #Start State
         state_in = state_in.reshape([1,-1])
-        
         if(prob_sample <= prob_explore ):                   #Exploration
             action = np.random.choice(action_size)
         else:                                               #Exploitation
